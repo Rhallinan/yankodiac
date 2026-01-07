@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { createPortal } from 'react-dom';
 import { NavProps } from '../types';
 
 // HOW TO ADD NEW CATEGORIES:
@@ -125,8 +126,8 @@ const Gallery: React.FC<NavProps> = ({ setView }) => {
         </button>
       </div>
 
-      {/* Lightbox */}
-      {selectedImage && (
+      {/* Lightbox - Using Portal to render outside the main container's stacking context */}
+      {selectedImage && createPortal(
         <div 
           className="fixed inset-0 z-[20000] flex flex-col items-center justify-center bg-[#0a0b10]/95 backdrop-blur-sm animate-fade-in cursor-none"
           onClick={() => setSelectedImage(null)}
@@ -146,7 +147,8 @@ const Gallery: React.FC<NavProps> = ({ setView }) => {
             />
           </div>
           <p className="mt-4 font-mono text-text-main">{selectedImage.title}</p>
-        </div>
+        </div>,
+        document.body
       )}
     </div>
   );
