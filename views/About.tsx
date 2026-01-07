@@ -26,7 +26,7 @@ const About: React.FC<NavProps> = ({ setView }) => {
             <div className="aspect-square w-[160px] overflow-hidden bg-gray-900">
               {/* INSTRUCTIONS: Name your file 'avatar.png' and put it in public/images/ folder */}
                <img 
-                src="/images/avatar.png" 
+                src="/images/avatar.jpg" 
                 alt="Avatar" 
                 className="h-full w-full object-cover contrast-125 sepia-[0.2]" 
                 onError={(e) => {
