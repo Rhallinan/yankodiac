@@ -24,10 +24,15 @@ const About: React.FC<NavProps> = ({ setView }) => {
         <aside className="flex flex-col items-center border-r border-white/5 bg-black/20 p-8 text-center md:items-start md:text-left">
           <div className="relative mb-6 p-1.5 border-2 border-accent-orange">
             <div className="aspect-square w-[160px] overflow-hidden bg-gray-900">
+              {/* INSTRUCTIONS: Name your file 'avatar.png' and put it in public/images/ folder */}
                <img 
-                src="https://picsum.photos/300/300?grayscale" 
+                src="/images/avatar.png" 
                 alt="Avatar" 
                 className="h-full w-full object-cover contrast-125 sepia-[0.2]" 
+                onError={(e) => {
+                  const target = e.target as HTMLImageElement;
+                  target.src = "https://picsum.photos/300/300?grayscale";
+                }}
               />
             </div>
             <span className="absolute -bottom-2.5 right-2 bg-bg-dark px-2 font-mono text-[0.7rem] text-accent-orange">

@@ -13,24 +13,19 @@ interface ArtWork {
   src: string;
 }
 
-// HOW TO ADD PHOTOS:
-// 1. Place your image files in your public/images folder
-// 2. Copy the structure below and change the details
-// 3. 'category' must match one of the types above (VAL, YAN, CAMILLE, FANART)
+// INSTRUCTIONS FOR ADDING PHOTOS:
+// 1. Put your image files in: public/images/
+// 2. Update the filenames below to match your actual files
 const ARTWORKS: ArtWork[] = [
-  // { 
-  //   id: 99, 
-  //   title: 'EXAMPLE_NAME.PNG', 
-  //   category: 'VAL', 
-  //   src: '/images/my-new-drawing.png' 
-  // },
-  { id: 1, title: 'VAL_PORTRAIT.PNG', category: 'VAL', src: 'https://picsum.photos/400/600?random=1' },
-  { id: 2, title: 'CAMILLE_BG.JPG', category: 'CAMILLE', src: 'https://picsum.photos/400/300?random=2' },
-  { id: 3, title: 'YAN_DESIGN_V3.PNG', category: 'YAN', src: 'https://picsum.photos/400/500?random=3' },
-  { id: 4, title: 'CYBERPUNK_FANART.JPG', category: 'FANART', src: 'https://picsum.photos/400/400?random=4' },
-  { id: 5, title: 'NEON_CITY.PNG', category: 'FANART', src: 'https://picsum.photos/400/350?random=5' },
-  { id: 6, title: 'VAL_ACTION_POSE.PNG', category: 'VAL', src: 'https://picsum.photos/400/550?random=6' },
-  { id: 7, title: 'YAN_BAR_SCENE.JPG', category: 'YAN', src: 'https://picsum.photos/400/450?random=7' },
+  { id: 1, title: 'VAL_PORTRAIT.PNG', category: 'VAL', src: '/images/val-portrait.png' },
+  { id: 2, title: 'CAMILLE_BG.JPG', category: 'CAMILLE', src: '/images/camille-bg.png' },
+  { id: 3, title: 'YAN_DESIGN_V3.PNG', category: 'YAN', src: '/images/yan-design.png' },
+  { id: 4, title: 'CYBERPUNK_FANART.JPG', category: 'FANART', src: '/images/cyberpunk.png' },
+  { id: 5, title: 'NEON_CITY.PNG', category: 'FANART', src: '/images/neon-city.png' },
+  { id: 6, title: 'VAL_ACTION_POSE.PNG', category: 'VAL', src: '/images/val-action.png' },
+  { id: 7, title: 'YAN_BAR_SCENE.JPG', category: 'YAN', src: '/images/yan-bar.png' },
+  // If you don't have these files yet, the site will show a broken image icon.
+  // Replace these filenames with the actual ones you dragged into the folder!
 ];
 
 const Gallery: React.FC<NavProps> = ({ setView }) => {
@@ -101,6 +96,10 @@ const Gallery: React.FC<NavProps> = ({ setView }) => {
               src={art.src}
               alt={art.title}
               className="w-full grayscale-[0.3] contrast-[1.1] transition-all duration-300 group-hover:grayscale-0"
+              onError={(e) => {
+                const target = e.target as HTMLImageElement;
+                target.src = "https://picsum.photos/400/500?grayscale"; // Fallback
+              }}
             />
             
             {/* Overlay */}

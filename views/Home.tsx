@@ -127,9 +127,9 @@ const Home: React.FC<NavProps> = ({ setView }) => {
           <div className="absolute left-1/2 top-1/2 h-[300px] w-[300px] -translate-x-1/2 -translate-y-1/2 rounded-full bg-[radial-gradient(circle,rgba(255,107,53,0.2)_0%,transparent_70%)] blur-xl"></div>
           
           {/* Character Image */}
-          {/* Note: Using a placeholder that matches the vibe. Replace src with your local file 'yan bartender transparent.png' */}
+          {/* INSTRUCTIONS: Name your file 'home-yan.png' and put it in public/images/ folder */}
           <img 
-            src="https://picsum.photos/400/600?grayscale" 
+            src="/images/home-yan.png" 
             alt="Yan Kodiac OC" 
             className="relative z-10 w-[90%] max-w-[400px] object-cover mix-blend-normal mask-image-gradient md:w-[110%]"
             style={{
@@ -137,6 +137,11 @@ const Home: React.FC<NavProps> = ({ setView }) => {
               WebkitMaskImage: 'linear-gradient(to top, transparent 0%, black 20%)',
               filter: 'sepia(0.2) contrast(1.1)'
             }} 
+            onError={(e) => {
+              // Fallback if image isn't found yet
+              const target = e.target as HTMLImageElement;
+              target.src = "https://picsum.photos/400/600?grayscale";
+            }}
           />
         </div>
       </div>
