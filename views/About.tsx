@@ -89,10 +89,10 @@ const About: React.FC<NavProps> = ({ setView }) => {
               &gt;&gt; CURRENT OBJECTIVE
             </h2>
             <p className="mb-4 leading-relaxed">
-              Directives have been updated. My primary focus is the continuous refinement of artistic capabilities and applying for upcoming conventions.
+              My primary focus is the continuously improving at art and applying for upcoming conventions.
             </p>
             <p className="mb-8 leading-relaxed">
-              Simultaneously, I am working on developing a comprehensive world for my OCs. Additionally, I am developing a <strong className="text-white">fashion line for Val</strong>, with the ultimate goal of compiling these designs into a physical art book.
+              Simultaneously, my other goal is to develop a <strong className="text-white">fashion line for Val</strong>, with the ultimate goal of compiling these designs into a physical art book.
             </p>
           </div>
 
