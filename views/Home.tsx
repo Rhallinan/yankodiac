@@ -79,7 +79,7 @@ const Home: React.FC<NavProps> = ({ setView }) => {
             </div>
             <div className="flex flex-col gap-3">
               {[
-                { label: 'COMMISSIONS', status: 'OPEN', href: 'https://vgen.co/Yan_Kodiac' },
+                { label: 'COMMISSIONS', status: 'CLOSED', href: 'https://vgen.co/Yan_Kodiac' },
                 { label: 'MERCH STORE', status: 'BUY', href: 'https://shop.moso.moe/yan-kodiac/' },
                 { label: 'PATREON', status: 'JOIN', href: 'https://www.patreon.com/yankodiac' },
               ].map((item) => (
