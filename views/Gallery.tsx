@@ -1,0 +1,152 @@
+import React, { useState } from 'react';
+import { NavProps } from '../types';
+
+// HOW TO ADD NEW CATEGORIES:
+// 1. Add the new name to the list below (e.g., 'SKETCHES' | 'OC')
+// 2. Add the button for it in the "Filter Bar" section further down
+type Category = 'ALL' | 'VAL' | 'YAN' | 'CAMILLE' | 'FANART';
+
+interface ArtWork {
+  id: number;
+  title: string;
+  category: Exclude<Category, 'ALL'>;
+  src: string;
+}
+
+// HOW TO ADD PHOTOS:
+// 1. Place your image files in your public/images folder
+// 2. Copy the structure below and change the details
+// 3. 'category' must match one of the types above (VAL, YAN, CAMILLE, FANART)
+const ARTWORKS: ArtWork[] = [
+  // { 
+  //   id: 99, 
+  //   title: 'EXAMPLE_NAME.PNG', 
+  //   category: 'VAL', 
+  //   src: '/images/my-new-drawing.png' 
+  // },
+  { id: 1, title: 'VAL_PORTRAIT.PNG', category: 'VAL', src: 'https://picsum.photos/400/600?random=1' },
+  { id: 2, title: 'CAMILLE_BG.JPG', category: 'CAMILLE', src: 'https://picsum.photos/400/300?random=2' },
+  { id: 3, title: 'YAN_DESIGN_V3.PNG', category: 'YAN', src: 'https://picsum.photos/400/500?random=3' },
+  { id: 4, title: 'CYBERPUNK_FANART.JPG', category: 'FANART', src: 'https://picsum.photos/400/400?random=4' },
+  { id: 5, title: 'NEON_CITY.PNG', category: 'FANART', src: 'https://picsum.photos/400/350?random=5' },
+  { id: 6, title: 'VAL_ACTION_POSE.PNG', category: 'VAL', src: 'https://picsum.photos/400/550?random=6' },
+  { id: 7, title: 'YAN_BAR_SCENE.JPG', category: 'YAN', src: 'https://picsum.photos/400/450?random=7' },
+];
+
+const Gallery: React.FC<NavProps> = ({ setView }) => {
+  const [filter, setFilter] = useState<Category>('ALL');
+  const [selectedImage, setSelectedImage] = useState<ArtWork | null>(null);
+
+  const filteredArt = filter === 'ALL' 
+    ? ARTWORKS 
+    : ARTWORKS.filter(art => art.category === filter);
+
+  return (
+    <div className="w-full max-w-[1200px] mx-auto p-6 min-h-screen relative z-10 animate-fade-in">
+      
+      {/* Top Left Navigation for easier access */}
+      <button 
+        onClick={() => setView('HOME')}
+        className="fixed top-6 left-6 z-50 hidden md:flex items-center gap-2 font-mono text-xs text-text-dim hover:text-accent-orange transition-colors"
+        data-cursor="hover"
+      >
+        <i className="fas fa-chevron-left"></i>
+        <span>RETURN_ROOT</span>
+      </button>
+      
+      {/* Header */}
+      <header className="mb-10 flex flex-col gap-6 md:flex-row md:items-end md:justify-between border-b border-white/10 pb-6">
+        <div>
+          <h1 className="font-mono text-3xl font-bold text-white shadow-[2px_2px_0px_#FF6B35] mb-1">
+            VISUAL_ARCHIVE
+          </h1>
+          <p className="font-mono text-xs text-accent-blue tracking-wider">
+            &gt;&gt; ACCESSING MEMORY FILES...
+          </p>
+        </div>
+
+        {/* Filter Bar */}
+        <div className="flex flex-wrap gap-3">
+          {(['ALL', 'VAL', 'YAN', 'CAMILLE', 'FANART'] as Category[]).map((cat) => (
+            <button
+              key={cat}
+              onClick={() => setFilter(cat)}
+              className={`border px-4 py-2 font-mono text-xs transition-all data-cursor="hover" ${
+                filter === cat
+                  ? 'border-accent-orange bg-accent-orange/10 text-accent-orange shadow-[0_0_10px_rgba(255,107,53,0.2)]'
+                  : 'border-text-dim text-text-dim hover:border-accent-orange hover:text-accent-orange'
+              }`}
+              data-cursor="hover"
+            >
+              [{cat === 'ALL' ? 'ALL_DATA' : cat}]
+            </button>
+          ))}
+        </div>
+      </header>
+
+      {/* Masonry Grid (Simulated with Columns) */}
+      <div className="columns-1 gap-6 sm:columns-2 lg:columns-3 space-y-6">
+        {filteredArt.map((art) => (
+          <div
+            key={art.id}
+            onClick={() => setSelectedImage(art)}
+            className="group relative break-inside-avoid overflow-hidden bg-bg-panel border border-transparent hover:border-accent-blue/30 transition-all hover:-translate-y-1 hover:shadow-2xl cursor-none"
+            data-cursor="hover"
+          >
+            {/* Tech Corners */}
+            <div className="absolute left-0 top-0 h-2.5 w-2.5 border-l-2 border-t-2 border-accent-blue opacity-0 transition-opacity group-hover:opacity-100 z-20"></div>
+            <div className="absolute bottom-0 right-0 h-2.5 w-2.5 border-b-2 border-r-2 border-accent-blue opacity-0 transition-opacity group-hover:opacity-100 z-20"></div>
+
+            <img
+              src={art.src}
+              alt={art.title}
+              className="w-full grayscale-[0.3] contrast-[1.1] transition-all duration-300 group-hover:grayscale-0"
+            />
+            
+            {/* Overlay */}
+            <div className="absolute bottom-0 left-0 w-full translate-y-full bg-gradient-to-t from-black/90 to-transparent p-4 transition-transform duration-300 group-hover:translate-y-0">
+              <span className="block font-mono text-sm text-white">{art.title}</span>
+              <span className="block font-mono text-[0.65rem] text-accent-orange uppercase">{art.category}</span>
+            </div>
+          </div>
+        ))}
+      </div>
+
+      <div className="mt-12 text-center">
+        <button 
+          onClick={() => setView('HOME')}
+          className="inline-block border border-text-dim bg-bg-dark px-6 py-3 font-mono text-sm text-text-main transition-all hover:border-accent-orange hover:text-accent-orange hover:shadow-[0_0_15px_rgba(255,107,53,0.2)]"
+          data-cursor="hover"
+        >
+          &lt; RETURN TO BAR
+        </button>
+      </div>
+
+      {/* Lightbox */}
+      {selectedImage && (
+        <div 
+          className="fixed inset-0 z-[20000] flex flex-col items-center justify-center bg-[#0a0b10]/95 backdrop-blur-sm animate-fade-in"
+          onClick={() => setSelectedImage(null)}
+        >
+          <button 
+            className="absolute right-8 top-8 text-3xl text-text-dim transition-colors hover:text-accent-orange"
+            data-cursor="hover"
+          >
+            &times;
+          </button>
+          
+          <div className="relative max-h-[85vh] max-w-[90vw] border border-accent-orange shadow-[0_0_50px_rgba(255,107,53,0.2)] p-1 bg-black">
+            <img 
+              src={selectedImage.src} 
+              alt={selectedImage.title} 
+              className="max-h-[80vh] w-auto object-contain"
+            />
+          </div>
+          <p className="mt-4 font-mono text-text-main">{selectedImage.title}</p>
+        </div>
+      )}
+    </div>
+  );
+};
+
+export default Gallery;
