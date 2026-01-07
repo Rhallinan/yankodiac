@@ -68,7 +68,7 @@ const About: React.FC<NavProps> = ({ setView }) => {
               Welcome to the digital archive. I am <strong className="text-white">Yan Kodiac</strong>, a digital artist and the architect of this virtual space.
             </p>
             <p className="mb-8 leading-relaxed">
-              While I spend my days creating illustrations and character designs, this bar is managed by <strong className="text-white">Yan</strong>—my bartender OC and the true face of the establishment. Whether you're here for commissions or just to browse the gallery, Yan ensures the drinks are digital and the vibes are immaculate.
+              While I spend my days creating illustrations, this bar is managed by <strong className="text-white">Yan</strong>, my bartender OC and the true face of the establishment. Whether you're here for commissions or just to browse the gallery, Yan ensures the drinks and the vibes are immaculate.
             </p>
 
             <h2 className="mb-4 mt-8 w-full border-b border-accent-blue/30 pb-2 font-mono text-lg text-accent-blue">
@@ -81,7 +81,7 @@ const About: React.FC<NavProps> = ({ setView }) => {
             </div>
 
             <div className="mb-8 border-l-2 border-accent-orange bg-white/5 p-4 font-mono text-sm">
-              <span className="block mb-1 font-bold text-accent-orange">[PROJECT PLUSH]</span>
+              <span className="block mb-1 font-bold text-accent-orange">[VAL PLUSH]</span>
               The <span className="text-accent-orange">Val Plushies</span> are officially underway! Production is starting now. They will be shipping out to supporters soon.
             </div>
 
@@ -92,7 +92,7 @@ const About: React.FC<NavProps> = ({ setView }) => {
               Directives have been updated. My primary focus is the continuous refinement of artistic capabilities and applying for upcoming conventions.
             </p>
             <p className="mb-8 leading-relaxed">
-              Simultaneously, resources are being allocated to <strong className="text-white">Project Worldbuild</strong>—developing a comprehensive environment for my OCs. Additionally, I am developing a specialized <strong className="text-white">fashion line for Val</strong>, with the ultimate goal of compiling these designs into a physical art book.
+              Simultaneously, I am working on developing a comprehensive world for my OCs. Additionally, I am developing a <strong className="text-white">fashion line for Val</strong>, with the ultimate goal of compiling these designs into a physical art book.
             </p>
           </div>
 

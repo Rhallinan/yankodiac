@@ -53,8 +53,8 @@
     <style>
       /* Hide cursor globally for the custom cursor effect on desktop */
       @media (hover: hover) and (pointer: fine) {
-        body, a, button, input {
-          cursor: none;
+        body, a, button, input, select, textarea, [role="button"] {
+          cursor: none !important;
         }
       }
       
@@ -81,7 +81,6 @@
   }
 }
 </script>
-<link rel="stylesheet" href="/index.css">
 </head>
   <body class="bg-bg-dark text-text-main overflow-x-hidden antialiased">
     <div id="root"></div>

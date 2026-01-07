@@ -17,12 +17,12 @@ interface ArtWork {
 // 1. Put your image files in: public/images/
 // 2. Update the filenames below to match your actual files
 const ARTWORKS: ArtWork[] = [
-  { id: 1, title: 'VAL_PORTRAIT.PNG', category: 'VAL', src: '/images/val-portrait.png' },
-  { id: 2, title: 'CAMILLE_PORTRAIT.PNG', category: 'CAMILLE', src: '/images/camille-bg.png' },
-  { id: 3, title: 'YAN_STREETWEAR.PNG', category: 'YAN', src: '/images/yan-design.png' },
-  { id: 4, title: 'ELLEN JOE STREET WITCH', category: 'FANART', src: '/images/ellen street witch.png' },
+  { id: 1, title: 'VAL_PORTRAIT.PNG', category: 'VAL', src: '/images/street witch 50 lr.png' },
+  { id: 2, title: 'CAMILLE_PORTRAIT.PNG', category: 'CAMILLE', src: '/images/camille 5 lr.png' },
+  { id: 3, title: 'YAN_STREETWEAR.PNG', category: 'YAN', src: '/images/yan lr.png' },
+  { id: 4, title: 'ELLEN JOE STREET WITCH', category: 'FANART', src: '/images/ellen street witch lr.png' },
   { id: 5, title: 'ELOISE', category: 'FANART', src: '/images/eloise.png' },
-  { id: 6, title: 'STREET WITCH 65.PNG', category: 'VAL', src: '/images/street witch 65.png' },
+  { id: 6, title: 'STREET WITCH 65.PNG', category: 'VAL', src: '/images/street witch 65 lr.png' },
   { id: 7, title: 'YAN_ZZZ.PNG', category: 'YAN', src: '/images/yan street bg 2.png' },
   // If you don't have these files yet, the site will show a broken image icon.
   // Replace these filenames with the actual ones you dragged into the folder!

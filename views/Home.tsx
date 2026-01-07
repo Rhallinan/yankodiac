@@ -57,7 +57,7 @@ const Home: React.FC<NavProps> = ({ setView }) => {
                 <button
                   key={item.label}
                   onClick={item.action}
-                  className="group flex w-full items-end text-left font-mono text-base text-text-main transition-all hover:text-white hover:drop-shadow-[0_0_8px_rgba(255,255,255,0.5)]"
+                  className="group flex w-full items-end text-left font-mono text-base text-text-main transition-all hover:text-white hover:drop-shadow-[0_0_8px_rgba(255,255,255,0.5)] cursor-none"
                   data-cursor="hover"
                 >
                   <span className="relative font-bold whitespace-nowrap pl-4 transition-all group-hover:pl-5">
@@ -88,7 +88,7 @@ const Home: React.FC<NavProps> = ({ setView }) => {
                   href={item.href}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="group flex w-full items-end text-left font-mono text-base text-accent-orange transition-all hover:text-white hover:drop-shadow-[0_0_8px_rgba(255,255,255,0.5)]"
+                  className="group flex w-full items-end text-left font-mono text-base text-accent-orange transition-all hover:text-white hover:drop-shadow-[0_0_8px_rgba(255,255,255,0.5)] cursor-none"
                   data-cursor="hover"
                 >
                   <span className="relative font-bold whitespace-nowrap pl-4 transition-all group-hover:pl-5">
@@ -106,13 +106,13 @@ const Home: React.FC<NavProps> = ({ setView }) => {
 
           {/* Social Links */}
           <div className="mt-4 flex gap-6 border-t border-white/10 pt-6">
-            <a href="https://x.com/Yan_Kodiac" target="_blank" rel="noopener noreferrer" className="text-text-dim text-lg transition-transform hover:-translate-y-1 hover:text-accent-blue" data-cursor="hover">
+            <a href="https://x.com/Yan_Kodiac" target="_blank" rel="noopener noreferrer" className="text-text-dim text-lg transition-transform hover:-translate-y-1 hover:text-accent-blue cursor-none" data-cursor="hover">
               <i className="fab fa-twitter"></i>
             </a>
-            <a href="https://bsky.app/profile/yankodiac.com" target="_blank" rel="noopener noreferrer" className="text-text-dim text-lg transition-transform hover:-translate-y-1 hover:text-accent-blue" data-cursor="hover">
+            <a href="https://bsky.app/profile/yankodiac.com" target="_blank" rel="noopener noreferrer" className="text-text-dim text-lg transition-transform hover:-translate-y-1 hover:text-accent-blue cursor-none" data-cursor="hover">
               <i className="fab fa-bluesky"></i>
             </a>
-            <a href="mailto:yan.kodiac@gmail.com" className="text-text-dim text-lg transition-transform hover:-translate-y-1 hover:text-accent-blue" data-cursor="hover">
+            <a href="mailto:yan.kodiac@gmail.com" className="text-text-dim text-lg transition-transform hover:-translate-y-1 hover:text-accent-blue cursor-none" data-cursor="hover">
               <i className="fas fa-envelope"></i>
             </a>
           </div>
