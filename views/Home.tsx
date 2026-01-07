@@ -129,7 +129,7 @@ const Home: React.FC<NavProps> = ({ setView }) => {
           {/* Character Image */}
           {/* INSTRUCTIONS: Name your file 'home-yan.png' and put it in public/images/ folder */}
           <img 
-            src="/images/home-yan.png" 
+            src="/images/home-yan.jpg" 
             alt="Yan Kodiac OC" 
             className="relative z-10 w-[90%] max-w-[400px] object-cover mix-blend-normal mask-image-gradient md:w-[110%]"
             style={{
