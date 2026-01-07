@@ -29,7 +29,11 @@ const ARTWORKS: ArtWork[] = [
   { id: 9, title: 'KAZUSA.PNG', category: 'FANART', src: '/images/kazusa lr.png' },
   { id: 10, title: 'VAL STREET WEAR.PNG', category: 'VAL', src: '/images/street witch 74 lr.png' },
   { id: 11, title: 'ERI.PNG', category: 'FANART', src: '/images/eri lr.png' },
-
+  { id: 12, title: 'VAL RACING.PNG', category: 'VAL', src: '/images/street witch 64 lr.png' },
+  { id: 13, title: 'VAL FASHION.PNG', category: 'VAL', src: '/images/street witch 58 lr.png' },
+  { id: 14, title: 'VAL RACING.PNG', category: 'VAL', src: '/images/street witch 59 lr.png' },
+  { id: 15, title: 'VAL FASHION.PNG', category: 'VAL', src: '/images/street witch 56 lr.png' },
+  { id: 16, title: 'YAN SWIMSUIT.PNG', category: 'YAN', src: '/images/yan swimsuit lr.png' },
   // If you don't have these files yet, the site will show a broken image icon.
   // Replace these filenames with the actual ones you dragged into the folder!
 ];
