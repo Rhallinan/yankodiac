@@ -18,22 +18,22 @@ interface ArtWork {
 // 1. Put your image files in: public/images/
 // 2. Update the filenames below to match your actual files
 const ARTWORKS: ArtWork[] = [
-  { id: 1, title: 'VAL_PORTRAIT.PNG', category: 'VAL', src: '/images/street witch 50 lr.png' },
-  { id: 2, title: 'CAMILLE_PORTRAIT.PNG', category: 'CAMILLE', src: '/images/camille 5 lr.png' },
-  { id: 3, title: 'YAN_STREETWEAR.PNG', category: 'YAN', src: '/images/yan lr.png' },
-  { id: 4, title: 'ELLEN JOE STREET WITCH', category: 'FANART', src: '/images/ellen street witch lr.png' },
-  { id: 5, title: 'ELOISE', category: 'FANART', src: '/images/eloise.png' },
-  { id: 6, title: 'STREET WITCH 65.PNG', category: 'VAL', src: '/images/street witch 65 lr.png' },
-  { id: 7, title: 'YAN_ZZZ.PNG', category: 'YAN', src: '/images/yan street bg 2.png' },
-  { id: 8, title: 'VAL STREET BUNNY.PNG', category: 'VAL', src: '/images/street witch 90 lr.png' },
-  { id: 9, title: 'KAZUSA.PNG', category: 'FANART', src: '/images/kazusa lr.png' },
-  { id: 10, title: 'VAL STREET WEAR.PNG', category: 'VAL', src: '/images/street witch 74 lr.png' },
-  { id: 11, title: 'ERI.PNG', category: 'FANART', src: '/images/eri lr.png' },
-  { id: 12, title: 'VAL RACING.PNG', category: 'VAL', src: '/images/street witch 64 lr.png' },
-  { id: 13, title: 'VAL FASHION.PNG', category: 'VAL', src: '/images/street witch 58 lr.png' },
-  { id: 14, title: 'VAL RACING.PNG', category: 'VAL', src: '/images/street witch 59 lr.png' },
-  { id: 15, title: 'VAL FASHION.PNG', category: 'VAL', src: '/images/street witch 56 lr.png' },
-  { id: 16, title: 'YAN SWIMSUIT.PNG', category: 'YAN', src: '/images/yan swimsuit lr.png' },
+  { id: 1, title: 'VAL_PORTRAIT.PNG', category: 'VAL', src: '/images/street witch 50 lr.jpg' },
+  { id: 2, title: 'CAMILLE_PORTRAIT.PNG', category: 'CAMILLE', src: '/images/camille 5 lr.jpg' },
+  { id: 3, title: 'YAN_STREETWEAR.PNG', category: 'YAN', src: '/images/yan lr.jpg' },
+  { id: 4, title: 'ELLEN JOE STREET WITCH', category: 'FANART', src: '/images/ellen street witch lr.jpg' },
+  { id: 5, title: 'ELOISE', category: 'FANART', src: '/images/eloise lr.jpg' },
+  { id: 6, title: 'STREET WITCH 65.PNG', category: 'VAL', src: '/images/street witch 65 lr.jpg' },
+  { id: 7, title: 'YAN_ZZZ.PNG', category: 'YAN', src: '/images/yan street bg 2.jpg' },
+  { id: 8, title: 'VAL STREET BUNNY.PNG', category: 'VAL', src: '/images/street witch 90 lr.jpg' },
+  { id: 9, title: 'KAZUSA.PNG', category: 'FANART', src: '/images/kazusa lr.jpg' },
+  { id: 10, title: 'VAL STREET WEAR.PNG', category: 'VAL', src: '/images/street witch 74 lr.jpg' },
+  { id: 11, title: 'ERI.PNG', category: 'FANART', src: '/images/eri lr.jpg' },
+  { id: 12, title: 'VAL RACING.PNG', category: 'VAL', src: '/images/street witch 64 lr.jpg' },
+  { id: 13, title: 'VAL FASHION.PNG', category: 'VAL', src: '/images/street witch 58 lr.jpg' },
+  { id: 14, title: 'VAL RACING.PNG', category: 'VAL', src: '/images/street witch 59 lr.jpg' },
+  { id: 15, title: 'VAL FASHION.PNG', category: 'VAL', src: '/images/street witch 56 lr.jpg' },
+  { id: 16, title: 'YAN SWIMSUIT.PNG', category: 'YAN', src: '/images/yan swimsuit lr.jpg' },
   // If you don't have these files yet, the site will show a broken image icon.
   // Replace these filenames with the actual ones you dragged into the folder!
 ];
