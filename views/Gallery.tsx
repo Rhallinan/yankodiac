@@ -32,9 +32,8 @@ const Gallery: React.FC<NavProps> = ({ setView }) => {
   const [filter, setFilter] = useState<Category>('ALL');
   const [selectedImage, setSelectedImage] = useState<ArtWork | null>(null);
 
-  const filteredArt = filter === 'ALL' 
-    ? ARTWORKS 
-    : ARTWORKS.filter(art => art.category === filter);
+  // Note: We map directly over ARTWORKS in the render to keep elements mounted (preventing reloads)
+  // and just toggle visibility with CSS classes.
 
   return (
     <div className="w-full max-w-[1200px] mx-auto p-6 min-h-screen relative z-10 animate-fade-in">
@@ -42,7 +41,7 @@ const Gallery: React.FC<NavProps> = ({ setView }) => {
       {/* Top Left Navigation for easier access */}
       <button 
         onClick={() => setView('HOME')}
-        className="fixed top-6 left-6 z-50 hidden md:flex items-center gap-2 font-mono text-xs text-text-dim hover:text-accent-orange transition-colors"
+        className="fixed top-6 left-6 z-50 hidden md:flex items-center gap-2 font-mono text-xs text-text-dim hover:text-accent-orange transition-colors cursor-none"
         data-cursor="hover"
       >
         <i className="fas fa-chevron-left"></i>
@@ -66,7 +65,7 @@ const Gallery: React.FC<NavProps> = ({ setView }) => {
             <button
               key={cat}
               onClick={() => setFilter(cat)}
-              className={`border px-4 py-2 font-mono text-xs transition-all data-cursor="hover" ${
+              className={`border px-4 py-2 font-mono text-xs transition-all cursor-none ${
                 filter === cat
                   ? 'border-accent-orange bg-accent-orange/10 text-accent-orange shadow-[0_0_10px_rgba(255,107,53,0.2)]'
                   : 'border-text-dim text-text-dim hover:border-accent-orange hover:text-accent-orange'
@@ -80,41 +79,46 @@ const Gallery: React.FC<NavProps> = ({ setView }) => {
       </header>
 
       {/* Masonry Grid (Simulated with Columns) */}
-      <div className="columns-1 gap-6 sm:columns-2 lg:columns-3 space-y-6">
-        {filteredArt.map((art) => (
-          <div
-            key={art.id}
-            onClick={() => setSelectedImage(art)}
-            className="group relative break-inside-avoid overflow-hidden bg-bg-panel border border-transparent hover:border-accent-blue/30 transition-all hover:-translate-y-1 hover:shadow-2xl cursor-none"
-            data-cursor="hover"
-          >
-            {/* Tech Corners */}
-            <div className="absolute left-0 top-0 h-2.5 w-2.5 border-l-2 border-t-2 border-accent-blue opacity-0 transition-opacity group-hover:opacity-100 z-20"></div>
-            <div className="absolute bottom-0 right-0 h-2.5 w-2.5 border-b-2 border-r-2 border-accent-blue opacity-0 transition-opacity group-hover:opacity-100 z-20"></div>
+      <div className="columns-1 gap-6 sm:columns-2 lg:columns-3">
+        {ARTWORKS.map((art) => {
+          const isVisible = filter === 'ALL' || art.category === filter;
+          
+          return (
+            <div
+              key={art.id}
+              onClick={() => setSelectedImage(art)}
+              className={`group relative break-inside-avoid overflow-hidden bg-bg-panel border border-transparent hover:border-accent-blue/30 transition-all hover:-translate-y-1 hover:shadow-2xl cursor-none mb-6 ${isVisible ? '' : 'hidden'}`}
+              data-cursor="hover"
+            >
+              {/* Tech Corners */}
+              <div className="absolute left-0 top-0 h-2.5 w-2.5 border-l-2 border-t-2 border-accent-blue opacity-0 transition-opacity group-hover:opacity-100 z-20"></div>
+              <div className="absolute bottom-0 right-0 h-2.5 w-2.5 border-b-2 border-r-2 border-accent-blue opacity-0 transition-opacity group-hover:opacity-100 z-20"></div>
 
-            <img
-              src={art.src}
-              alt={art.title}
-              className="w-full grayscale-[0.3] contrast-[1.1] transition-all duration-300 group-hover:grayscale-0"
-              onError={(e) => {
-                const target = e.target as HTMLImageElement;
-                target.src = "https://picsum.photos/400/500?grayscale"; // Fallback
-              }}
-            />
-            
-            {/* Overlay */}
-            <div className="absolute bottom-0 left-0 w-full translate-y-full bg-gradient-to-t from-black/90 to-transparent p-4 transition-transform duration-300 group-hover:translate-y-0">
-              <span className="block font-mono text-sm text-white">{art.title}</span>
-              <span className="block font-mono text-[0.65rem] text-accent-orange uppercase">{art.category}</span>
+              <img
+                src={art.src}
+                alt={art.title}
+                loading="lazy"
+                className="w-full grayscale-[0.3] contrast-[1.1] transition-all duration-300 group-hover:grayscale-0"
+                onError={(e) => {
+                  const target = e.target as HTMLImageElement;
+                  target.src = "https://picsum.photos/400/500?grayscale"; // Fallback
+                }}
+              />
+              
+              {/* Overlay */}
+              <div className="absolute bottom-0 left-0 w-full translate-y-full bg-gradient-to-t from-black/90 to-transparent p-4 transition-transform duration-300 group-hover:translate-y-0">
+                <span className="block font-mono text-sm text-white">{art.title}</span>
+                <span className="block font-mono text-[0.65rem] text-accent-orange uppercase">{art.category}</span>
+              </div>
             </div>
-          </div>
-        ))}
+          );
+        })}
       </div>
 
       <div className="mt-12 text-center">
         <button 
           onClick={() => setView('HOME')}
-          className="inline-block border border-text-dim bg-bg-dark px-6 py-3 font-mono text-sm text-text-main transition-all hover:border-accent-orange hover:text-accent-orange hover:shadow-[0_0_15px_rgba(255,107,53,0.2)]"
+          className="inline-block border border-text-dim bg-bg-dark px-6 py-3 font-mono text-sm text-text-main transition-all hover:border-accent-orange hover:text-accent-orange hover:shadow-[0_0_15px_rgba(255,107,53,0.2)] cursor-none"
           data-cursor="hover"
         >
           &lt; RETURN TO BAR
@@ -124,11 +128,11 @@ const Gallery: React.FC<NavProps> = ({ setView }) => {
       {/* Lightbox */}
       {selectedImage && (
         <div 
-          className="fixed inset-0 z-[20000] flex flex-col items-center justify-center bg-[#0a0b10]/95 backdrop-blur-sm animate-fade-in"
+          className="fixed inset-0 z-[20000] flex flex-col items-center justify-center bg-[#0a0b10]/95 backdrop-blur-sm animate-fade-in cursor-none"
           onClick={() => setSelectedImage(null)}
         >
           <button 
-            className="absolute right-8 top-8 text-3xl text-text-dim transition-colors hover:text-accent-orange"
+            className="absolute right-8 top-8 text-3xl text-text-dim transition-colors hover:text-accent-orange cursor-none"
             data-cursor="hover"
           >
             &times;
