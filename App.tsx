@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import Cursor from './components/Cursor';
 import Particles from './components/Particles';
 import Scanlines from './components/Scanlines';
+import MusicPlayer from './components/MusicPlayer';
 import Home from './views/Home';
 import About from './views/About';
 import Gallery from './views/Gallery';
@@ -34,6 +35,7 @@ const App: React.FC = () => {
       <Cursor />
       <Particles />
       <Scanlines />
+      <MusicPlayer />
 
       {/* Main Content Area */}
       <main className="relative z-10 flex min-h-screen flex-col items-center justify-center">
