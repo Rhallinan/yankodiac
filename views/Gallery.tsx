@@ -25,6 +25,8 @@ const ARTWORKS: ArtWork[] = [
   { id: 5, title: 'ELOISE', category: 'FANART', src: '/images/eloise.png' },
   { id: 6, title: 'STREET WITCH 65.PNG', category: 'VAL', src: '/images/street witch 65 lr.png' },
   { id: 7, title: 'YAN_ZZZ.PNG', category: 'YAN', src: '/images/yan street bg 2.png' },
+  { id: 8, title: 'VAL STREET BUNNY.PNG', category: 'YAN', src: '/images/street witch 90 lr.png' },
+
   // If you don't have these files yet, the site will show a broken image icon.
   // Replace these filenames with the actual ones you dragged into the folder!
 ];
