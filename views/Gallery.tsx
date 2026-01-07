@@ -34,7 +34,7 @@ const ARTWORKS: ArtWork[] = [
   { id: 14, title: 'VAL RACING.PNG', category: 'VAL', src: '/images/street witch 59 lr.jpg' },
   { id: 15, title: 'VAL FASHION.PNG', category: 'VAL', src: '/images/street witch 56 lr.jpg' },
   { id: 16, title: 'YAN SWIMSUIT.PNG', category: 'YAN', src: '/images/yan swimsuit lr.jpg' },
-  { id: 16, title: 'VAL MAID.PNG', category: 'VAL', src: '/images/street witch 49 lr.jpg' },
+  { id: 17, title: 'VAL MAID.PNG', category: 'VAL', src: '/images/street witch 49 lr.jpg' },
 
   // If you don't have these files yet, the site will show a broken image icon.
   // Replace these filenames with the actual ones you dragged into the folder!
