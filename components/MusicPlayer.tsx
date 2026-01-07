@@ -12,6 +12,21 @@ const MusicPlayer: React.FC = () => {
     }
   }, [volume]);
 
+  // Attempt to autoplay on mount
+  useEffect(() => {
+    const attemptAutoplay = async () => {
+      if (audioRef.current) {
+        try {
+          await audioRef.current.play();
+          // State will be updated by the onPlay event listener below
+        } catch (e) {
+          console.log("Autoplay blocked by browser policy. User interaction required.");
+        }
+      }
+    };
+    attemptAutoplay();
+  }, []);
+
   const togglePlay = () => {
     if (audioRef.current) {
       if (isPlaying) {
@@ -19,7 +34,9 @@ const MusicPlayer: React.FC = () => {
       } else {
         audioRef.current.play().catch(e => console.log("Audio play failed (browser policy):", e));
       }
-      setIsPlaying(!isPlaying);
+      // Note: We don't manually setIsPlaying here anymore.
+      // We rely on the <audio> onPlay/onPause events to update state.
+      // This ensures the UI is always in sync with reality (e.g. if browser blocks autoplay).
     }
   };
 
@@ -97,6 +114,9 @@ const MusicPlayer: React.FC = () => {
         ref={audioRef}
         src="/music/lost-in-thought.mp3"
         loop
+        autoPlay
+        onPlay={() => setIsPlaying(true)}
+        onPause={() => setIsPlaying(false)}
         onEnded={() => setIsPlaying(false)}
       />
 
