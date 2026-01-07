@@ -129,7 +129,7 @@ const Home: React.FC<NavProps> = ({ setView }) => {
           {/* Character Image */}
           {/* Note: Using a placeholder that matches the vibe. Replace src with your local file 'yan bartender transparent.png' */}
           <img 
-            src="yan kodiac transparent.png" 
+            src="yan bartender transparent.png" 
             alt="Yan Kodiac OC" 
             className="relative z-10 w-[90%] max-w-[400px] object-cover mix-blend-normal mask-image-gradient md:w-[110%]"
             style={{
